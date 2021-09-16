@@ -17,4 +17,23 @@ for (let i = 0; i < data.length; i += 1) {
 	newDiv.appendChild(img)
 	console.log(img) // Check the console!
 	itemsContainer.appendChild(newDiv)
+	// Create a p element with the item description
+	const description = document.createElement('p');
+	description.innerText = data[i].desc
+	// Add the description to the div
+	newDiv.appendChild(description)
+	// Create a p element with the price
+	const price = document.createElement('p');
+	price.innerText = data[i].price
+	// Add teh price to the div
+	newDiv.appendChild(price)
+	// Create a button element 
+	const button = document.createElement('button');
+	// Assign the name as the id of each button & the price as a custom data point
+	button.id = data[i].name
+	button.dataset.price = data[i].price
+	//button text "Add to Cart"
+	button.innerHTML = "Add to Cart"
+	// Add button to the div
+	newDiv.appendChild(button)
 }
