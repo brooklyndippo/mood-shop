@@ -19,11 +19,13 @@ for (let i = 0; i < data.length; i += 1) {
 	itemsContainer.appendChild(newDiv)
 	// Create a p element with the item description
 	const description = document.createElement('p');
+	description.id = "description"
 	description.innerText = data[i].desc
 	// Add the description to the div
 	newDiv.appendChild(description)
 	// Create a p element with the price
 	const price = document.createElement('p');
+	price.id = "price"
 	price.innerText = data[i].price
 	// Add teh price to the div
 	newDiv.appendChild(price)
