@@ -39,3 +39,23 @@ for (let i = 0; i < data.length; i += 1) {
 	// Add button to the div
 	newDiv.appendChild(button)
 }
+
+const cart = []
+
+function addItem(name, price) {
+	const item = {
+		name: name, 
+		price: price, 
+		qty: 1}
+	cart.push(item)
+}
+
+function showItems() {
+	console.log(`You have ${cart.length} items in your cart.`)
+
+}
+
+addItem('apple', 0.99)
+addItem('orange', 1.29)
+
+showItems()
