@@ -42,6 +42,8 @@ for (let i = 0; i < data.length; i += 1) {
 
 const cart = []
 
+//----------------------------------------------------
+//Add Item
 function addItem(name, price) {
 	for (let i=0; i < cart.length; i++) {
 		if (cart[i].name === name) {
@@ -58,6 +60,8 @@ function addItem(name, price) {
 	cart.push(item)
 }
 
+//----------------------------------------------------
+//Get QUANTITY and TOTAL 
 function getQty() {
 	//create a loop to calculate the total number of items in a shopping cart
 	let qty = 0
@@ -76,6 +80,41 @@ function getTotal() {
 	return total.toFixed(2)
 }
 
+//-----------------------------------------------------
+//Remove Item
+function removeItem(name) {
+	for (let i = 0; i < cart.length; i++) {
+		if (cart[i].name === name) {
+			cart.splice(i, 1)
+			return
+		}
+	}
+}
+
+
+//-----------------------------------------------------
+//Change Quantity - REDUCE
+function reduceQty (name) {
+	for (let i = 0; i < cart.length; i++) {
+		if (cart[i].name === name && cart[i].qty>1) {
+			cart[i].qty -= 1;
+		}
+	}
+}
+
+//-----------------------------------------------------
+//Change Quantity - INCREASE
+function increaseQty (name) {
+	for (let i=0; i < cart.length; i++) {
+		if (cart[i].name === name && cart[i].qty>0) {
+			cart[i].qty += 1
+		}
+	}
+}
+
+
+//----------------------------------------------------
+//Display Items in Cart
 function showItems() {
 	const qty = getQty()
 	console.log(`You have ${qty} items in your cart.`)
@@ -88,8 +127,12 @@ function showItems() {
 	console.log(`Your cart total is: $${total}`)
 }
 
+
 addItem('apple', 0.99)
 addItem('orange', 1.29)
 addItem('apple', 0.99)
 addItem('orange', 1.29)
+showItems()
+increaseQty('orange')
+//removeItem('orange')
 showItems()
