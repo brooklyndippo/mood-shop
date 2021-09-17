@@ -43,19 +43,53 @@ for (let i = 0; i < data.length; i += 1) {
 const cart = []
 
 function addItem(name, price) {
+	for (let i=0; i < cart.length; i++) {
+		if (cart[i].name === name) {
+			cart[i].qty += 1;
+			return
+		}
+	}
+
 	const item = {
-		name: name, 
-		price: price, 
+		name, 
+		price, 
 		qty: 1}
+		//refactored to eliminate redundancies, same name
 	cart.push(item)
 }
 
-function showItems() {
-	console.log(`You have ${cart.length} items in your cart.`)
+function getQty() {
+	//create a loop to calculate the total number of items in a shopping cart
+	let qty = 0
+	for (let i=0; i <cart.length; i++) {
+		qty += cart[i].qty
+	}
+	return qty
+}
 
+function getTotal() {
+	//create a loop to calculate the total cost of a shopping cart
+	let total = 0.00
+	for (let i=0; i< cart.length; i++) {
+		total += (cart[i].price * cart[i].qty)
+	}
+	return total.toFixed(2)
+}
+
+function showItems() {
+	const qty = getQty()
+	console.log(`You have ${qty} items in your cart.`)
+
+	for (let i = 0; i < cart.length; i++) {
+		console.log(`- ${cart[i].name} - ${cart[i].price} x ${cart[i].qty}`)
+	}
+
+	const total = getTotal()
+	console.log(`Your cart total is: $${total}`)
 }
 
 addItem('apple', 0.99)
 addItem('orange', 1.29)
-
+addItem('apple', 0.99)
+addItem('orange', 1.29)
 showItems()
