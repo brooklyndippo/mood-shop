@@ -1,6 +1,9 @@
 import data from './data.js'
 
 const itemsContainer = document.querySelector('#items')
+const itemList = document.getElementById('item-list')
+const cartQty = document.getElementById('cart-qty')
+const cartTotal = document.getElementById('cart-total')
 
 // the length of our data determines how many times this loop goes around
 for (let i = 0; i < data.length; i += 1) {
@@ -80,6 +83,7 @@ function getTotal() {
 	return total.toFixed(2)
 }
 
+
 //-----------------------------------------------------
 //Remove Item
 function removeItem(name) {
@@ -117,14 +121,23 @@ function increaseQty (name) {
 //Display Items in Cart
 function showItems() {
 	const qty = getQty()
-	console.log(`You have ${qty} items in your cart.`)
+	cartQty.innerHTML = `You have ${qty} items in your cart.`
+	//console.log(`You have ${qty} items in your cart.`)
 
+	let itemStr = ''
 	for (let i = 0; i < cart.length; i++) {
-		console.log(`- ${cart[i].name} - ${cart[i].price} x ${cart[i].qty}`)
+		let itemTotal = cart[i].price * cart[i].qty
+		//console.log(`- ${cart[i].name} - ${cart[i].price} x ${cart[i].qty}`)
+		itemStr += `<li>${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}</li>`
 	}
 
+	itemList.innerHTML = itemStr
+	
+
+
 	const total = getTotal()
-	console.log(`Your cart total is: $${total}`)
+	cartTotal.innerHTML = `Your cart total is: $${total}`
+	//console.log(`Your cart total is: $${total}`)
 }
 
 
