@@ -110,7 +110,7 @@ function reduceQty (name) {
 //Change Quantity - INCREASE
 function increaseQty (name) {
 	for (let i = 0; i < cart.length; i++) {
-		if (cart[i].name === name && cart[i].qty>0) {
+		if (cart[i].name === name && cart[i].qty>-1) {
 			cart[i].qty += 1
 		}
 	}

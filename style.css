@@ -18,6 +18,11 @@ body {
     list-style: none;
 }
 
+h4 {
+    margin-left: 10px;
+}
+
+
 .page-header a {
     color: var(--text-color);
     display: block;
@@ -96,25 +101,33 @@ footer {
     background-color: aliceblue;
     margin: 100px;
     padding: 50px;
+    border-style: dashed;
+    border-color: lightslategray;
+    border-width: 2px;
+    text-align: center;
+    font-family: monospace;
 }
 
 .cart-list {
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr .5fr .5fr 1fr;
     grid-template-areas:
     "i i i i"
-    "p m . ."
-    "r r . ."
+    ". p m ."
+    ". r r ."
     ;
+    margin: 20px;
 }
 
 .remove {
     grid-area: r;
+    width: 50%;
+    justify-self: center;
     background-color: darksalmon;
     border-style: solid;
     border-radius: 5px;
     border-width: 1px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
 }
 
@@ -124,14 +137,54 @@ footer {
 
 .increase {
     grid-area: p;
+    width: 50%;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    justify-self: flex-end;
+    align-self: center;
+    vertical-align: center;
+    margin: 5px 1px 5px 0px;
+}
+
+.increase:hover {
+    background-color: darkgray;
 }
 
 .decrease {
     grid-area: m;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    width: 50%;
+    align-self: center;
+    justify-self: flex-start;
+    margin: 5px 0px 5px 1px;
+}
+
+.decrease:hover {
+    background-color: darkgray;
 }
 
 .checkout-item {
     grid-area: i;
 }
 
+ul {
+    margin-left: 0px;
+    padding: 0px;
+}
 
+#cart-qty {
+    font-size: 1.1em;
+}
+
+#cart-total {
+    font-weight: 700; 
+    font-size: 1.1em;
+    border: solid;
+    border-width: 1px 0px 0px 0px;
+    margin: 50px 25% 0px 25%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
