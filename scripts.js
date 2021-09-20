@@ -100,7 +100,7 @@ function removeItem(name) {
 //Change Quantity - REDUCE
 function reduceQty (name) {
 	for (let i = 0; i < cart.length; i++) {
-		if (cart[i].name === name && cart[i].qty>1) {
+		if (cart[i].name === name && cart[i].qty>0) {
 			cart[i].qty -= 1;
 		}
 	}
@@ -109,7 +109,7 @@ function reduceQty (name) {
 //-----------------------------------------------------
 //Change Quantity - INCREASE
 function increaseQty (name) {
-	for (let i=0; i < cart.length; i++) {
+	for (let i = 0; i < cart.length; i++) {
 		if (cart[i].name === name && cart[i].qty>0) {
 			cart[i].qty += 1
 		}
@@ -118,7 +118,7 @@ function increaseQty (name) {
 
 
 //----------------------------------------------------
-//Display Items in Cart
+//Show Items in Cart
 function showItems() {
 	const qty = getQty()
 	cartQty.innerHTML = `You have ${qty} items in your cart.`
@@ -128,7 +128,12 @@ function showItems() {
 	for (let i = 0; i < cart.length; i++) {
 		let itemTotal = cart[i].price * cart[i].qty
 		//console.log(`- ${cart[i].name} - ${cart[i].price} x ${cart[i].qty}`)
-		itemStr += `<li>${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}</li>`
+		itemStr += `<li>
+		${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}
+		<button class="remove" data-name="${cart[i].name}">Remove</button>
+		<button class="decrease" data-name="${cart[i].name}">-</button>
+		<button class="increase" data-name="${cart[i].name}">+</button>
+		</li>`
 	}
 
 	// make a list of all the items in the cart
@@ -139,6 +144,8 @@ function showItems() {
 	//console.log(`Your cart total is: $${total}`)
 }
 
+//----------------------------------------------------
+// Handle clicks on Items
 const allItemsButton = Array.from(document.querySelectorAll('button'))
 console.log (allItemsButton)
 
@@ -147,11 +154,30 @@ allItemsButton.forEach(elt => elt.addEventListener('click', () => {
 	showItems()
   }))
 
-addItem('apple', 0.99)
-addItem('orange', 1.29)
-addItem('apple', 0.99)
-addItem('orange', 1.29)
-showItems()
-increaseQty('orange')
-//removeItem('orange')
+//----------------------------------------------------
+// Handle clicks on list
+itemList.onclick = function (e) {
+	console.log("Clicked list!")
+	console.log (e.target)
+	if (e.target && e.target.classList.contains('remove')) {
+		console.log("Remove it!")
+		const name = e.target.dataset.name
+		removeItem(name)
+		showItems()
+	}
+	else if (e.target && e.target.classList.contains('decrease')) {
+		console.log("Minus 1")
+		const name = e.target.dataset.name
+		reduceQty(name)
+		showItems()
+	}
+	else if (e.target && e.target.classList.contains('increase')) {
+		console.log("Plus 1")
+		const name = e.target.dataset.name
+		increaseQty(name)
+		showItems()
+	}
+}
+
+
 showItems()

@@ -87,3 +87,7 @@ body {
     text-align: center;
     font-size: 14px;
 }
+
+li {
+    list-style: none;
+}
