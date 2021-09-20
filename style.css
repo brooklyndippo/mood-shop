@@ -91,3 +91,47 @@ body {
 li {
     list-style: none;
 }
+
+footer {
+    background-color: aliceblue;
+    margin: 100px;
+    padding: 50px;
+}
+
+.cart-list {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "i i i i"
+    "p m . ."
+    "r r . ."
+    ;
+}
+
+.remove {
+    grid-area: r;
+    background-color: darksalmon;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 10px;
+    text-align: center;
+}
+
+.remove:hover {
+    background-color: indianred;
+}
+
+.increase {
+    grid-area: p;
+}
+
+.decrease {
+    grid-area: m;
+}
+
+.checkout-item {
+    grid-area: i;
+}
+
+

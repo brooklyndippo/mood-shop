@@ -128,11 +128,11 @@ function showItems() {
 	for (let i = 0; i < cart.length; i++) {
 		let itemTotal = cart[i].price * cart[i].qty
 		//console.log(`- ${cart[i].name} - ${cart[i].price} x ${cart[i].qty}`)
-		itemStr += `<li>
-		${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}
+		itemStr += `<li class="cart-list"><div class="checkout-item">
+		${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}</div>
 		<button class="remove" data-name="${cart[i].name}">Remove</button>
-		<button class="decrease" data-name="${cart[i].name}">-</button>
-		<button class="increase" data-name="${cart[i].name}">+</button>
+		<button class="decrease change" data-name="${cart[i].name}">-</button>
+		<button class="increase change" data-name="${cart[i].name}">+</button>
 		</li>`
 	}
 
