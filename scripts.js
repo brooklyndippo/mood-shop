@@ -131,15 +131,21 @@ function showItems() {
 		itemStr += `<li>${cart[i].name} - ${cart[i].price} x ${cart[i].qty} = ${itemTotal.toFixed(2)}</li>`
 	}
 
+	// make a list of all the items in the cart
 	itemList.innerHTML = itemStr
 	
-
-
 	const total = getTotal()
 	cartTotal.innerHTML = `Your cart total is: $${total}`
 	//console.log(`Your cart total is: $${total}`)
 }
 
+const allItemsButton = Array.from(document.querySelectorAll('button'))
+console.log (allItemsButton)
+
+allItemsButton.forEach(elt => elt.addEventListener('click', () => {
+	addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+	showItems()
+  }))
 
 addItem('apple', 0.99)
 addItem('orange', 1.29)
