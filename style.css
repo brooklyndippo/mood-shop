@@ -2,14 +2,21 @@
     --text-color:#333;
 }
 
+/*Body
+Set the font color, family, size, and line height.*/
 body {
     color: var(--text-color);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Tahoma, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     margin: 0;
 }
 
+
+/*Header/Nav Menu
+Create a flexbox row with space in between.
+Set the color to alice blue.
+Remove the bullet points next to each link.*/
 .page-header, .page-header ul {
     display: flex;
     flex-direction: row;
@@ -22,7 +29,10 @@ h4 {
     margin-left: 10px;
 }
 
-
+/*Nav Menu Links
+Change them to the default text color.
+Remove the default line underneath links by changing text decoration.
+Display it in a block.*/
 .page-header a {
     color: var(--text-color);
     display: block;
@@ -60,7 +70,12 @@ h4 {
     border-radius: 10px;
 }
 
-
+/*BUTTON for Add to Cart:
+Set the background to midnightblue and the font to white.
+Create a simple solid border in the same color as the box.
+Add padding on the top/bottom of 5px and 20px on each side.
+Stretch across the box.
+Add a hover effect to change background color to aliceblue.*/
 .item button {
     color: white;
     background-color: midnightblue;
@@ -77,6 +92,10 @@ h4 {
     color: var(--text-color);
 }
 
+/*Description and Price:
+Set the width to 90% for both and create a standard height.
+(This allows elements to line up evenly across different items.
+Align text in the center for the price. Change font size.*/
 #description {
     font-size: 12px;
     width: 90%;
@@ -97,6 +116,10 @@ li {
     list-style: none;
 }
 
+/*Footer/CART:
+Set the background to aliceblue, Creaete a wide margin and padding.
+Surround the footer with a dashed line in light slate gray.
+Change the font to monospace to look like a receipt.*/
 footer {
     background-color: aliceblue;
     margin: 100px;
@@ -108,6 +131,7 @@ footer {
     font-family: monospace;
 }
 
+/*Create a grid for each item in the list*/
 .cart-list {
     display:grid;
     grid-template-columns: 1fr .5fr .5fr 1fr;
@@ -119,6 +143,13 @@ footer {
     margin: 20px;
 }
 
+
+/*Style the remove, increase, and decrease items*/
+/*Remove Button:
+Make the remove a darksalmon, with indian red on hover. 
+Set the width to 50% and center the button.
+Create a simple, solid border and add 5px padding around the text. 
+*/
 .remove {
     grid-area: r;
     width: 50%;
@@ -135,6 +166,12 @@ footer {
     background-color: indianred;
 }
 
+
+/*Increase Button:
+Make the width 50% and align at the end of the gridbox.
+Create a simple solid border. Create a margin with 5px on top
+and 1px on the right. Add a hover effect to a dark gray.
+*/
 .increase {
     grid-area: p;
     width: 50%;
@@ -142,8 +179,6 @@ footer {
     border-radius: 5px;
     border-width: 1px;
     justify-self: flex-end;
-    align-self: center;
-    vertical-align: center;
     margin: 5px 1px 5px 0px;
 }
 
@@ -151,13 +186,17 @@ footer {
     background-color: darkgray;
 }
 
+/*Decrease Button:
+Make the width 50% and align at the start of the gridbox.
+Create a simple solid border. Create a margin with 5px on top
+and 1px on the left. Add a hover effect to a dark gray.
+*/
 .decrease {
     grid-area: m;
     border-style: solid;
     border-radius: 5px;
     border-width: 1px;
     width: 50%;
-    align-self: center;
     justify-self: flex-start;
     margin: 5px 0px 5px 1px;
 }
@@ -179,6 +218,11 @@ ul {
     font-size: 1.1em;
 }
 
+/*Cart Total:
+Make the font larger and bold.
+Add a solid border on the top only to create a line.
+Add 20px of padding on the top and bottom.
+*/
 #cart-total {
     font-weight: 700; 
     font-size: 1.1em;
